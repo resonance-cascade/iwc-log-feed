@@ -4,7 +4,8 @@
   "description": "Creates an atom feed for the IWC irc logs.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,14 @@
   "bugs": {
     "url": "https://github.com/bcomnes/iwc-log-feed/issues"
   },
-  "homepage": "https://github.com/bcomnes/iwc-log-feed"
+  "homepage": "https://github.com/bcomnes/iwc-log-feed",
+  "dependencies": {
+    "microformat-node": "~0.2.8",
+    "express": "3.4.7",
+    "jade": "~1.3.0"
+  },
+  "engines": {
+    "node": "0.10.x"
+  }
+}
 }
