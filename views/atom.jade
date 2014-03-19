@@ -17,12 +17,9 @@ feed(xmlns="http://www.w3.org/2005/Atom")
     link(href=log.url)/
     title #indiewebcamp #{log.updated.format('YYYY-MM-DD')}
     content(type="html")
-      each entry in log.items
-        = '<p>' + entry.properties.content[0].html + '</p>'
-mixin jade
-  div(class="logs")
-    each entry in log.items
-      p(class="h-entry")
-        time(class="dt-published" datetime=entry.properties.published)
-          a(href=entry.properties.url[0] class='u-url')= (new Date(entry.properties.published)).toLocaleTimeString("en-US")
-        = entry.properties.content[0].html
+      div(class="logs")
+        each entry in log.items
+          p(class="h-entry")
+            time(class="dt-published" datetime=entry.properties.published)
+              a(href=entry.properties.url[0] class='u-url')= (new Date(entry.properties.published)).toLocaleTimeString("en-US")
+            = entry.properties.content[0].html
