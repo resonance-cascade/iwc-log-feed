@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -18,11 +19,15 @@
   },
   "homepage": "https://github.com/bcomnes/iwc-log-feed",
   "dependencies": {
-    "microformat-node": "~0.2.8",
-    "express": "3.4.7",
-    "jade": "~1.3.0"
+    "microformat-node": "~0.2.10",
+    "express": "~3.4.8",
+    "jade": "~1.3.0",
+    "moment": "~2.5.1"
   },
   "engines": {
     "node": "0.10.x"
+  },
+  "devDependencies": {
+    "replify": "~1.2.0"
   }
 }

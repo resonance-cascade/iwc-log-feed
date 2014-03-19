@@ -8,6 +8,7 @@ var routes = require('./routes');
 var http = require('http');
 var path = require('path');
 var logs = require('./lib/logs');
+var moment = require('moment');
 
 var app = express();
 
@@ -25,11 +26,17 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // development only
 if ('development' == app.get('env')) {
+  var replify = require('replify');
   app.use(express.errorHandler());
   app.locals.pretty = true;
+
+  // Use repl-client to connect to interactive repl
+  //  rc /tmp/repl/iwclog.sock
+  replify('iwclog', app);
 }
 
-logs.update (function (err, data) {
+var baseURL = 'http://indiewebcamp.com/irc/';
+logs.update(baseURL, moment().subtract('days', 1), function (err, data) {
   app.locals.log = data;
 });
 
