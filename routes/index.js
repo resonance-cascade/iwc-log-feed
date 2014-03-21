@@ -12,5 +12,5 @@ exports.atom = function(req, res){
 };
 
 exports.htmltest =function(req,res) {
-  res.render('htmltest');
-}
+  res.render('htmltest',  { title: 'HTML output test' });
+};
