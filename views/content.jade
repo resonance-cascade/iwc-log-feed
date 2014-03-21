@@ -1,23 +1,24 @@
-each entry in log.items
-  if entry.properties.author
-    dl(class="h-entry")
-      dt
-        time(class="dt-published" datetime=entry.properties.published)
-          = '('
-          a(href=entry.properties.url[0] class='u-url')
-            = (new Date(entry.properties.published)).toLocaleTimeString("en-US")
-          = ')'
-        = ' '
-        span(class="p-author h-card") 
-          if entry.properties.author[0].properties.url
-            = '<'
-            a(href=entry.properties.author[0].properties.url class="p-nickname p-name u-url")
-              = entry.properties.author[0].value
-            = '>'
-          else
-            = '<'
-            span(class="p-nickname p-name")
-              = entry.properties.author[0].value
-            = '>'
-      dd
-        != entry.properties.content[0].html   
+div(class="logs")
+  each entry in log.items
+    if entry.properties.author
+      dl(class="h-entry")
+        dt
+          time(class="dt-published" datetime=entry.properties.published)
+            = '('
+            a(href=entry.properties.url[0] class='u-url')
+              = (new Date(entry.properties.published)).toLocaleTimeString("en-US")
+            = ')'
+          = ' '
+          span(class="p-author h-card") 
+            if entry.properties.author[0].properties.url
+              = '<'
+              a(href=entry.properties.author[0].properties.url class="p-nickname p-name u-url")
+                = entry.properties.author[0].value
+              = '>'
+            else
+              = '<'
+              span(class="p-nickname p-name")
+                = entry.properties.author[0].value
+              = '>'
+        dd
+          != entry.properties.content[0].html   
