@@ -16,4 +16,5 @@ feed(xmlns="http://www.w3.org/2005/Atom")
     id #{log.url}
     link(href=log.url)/
     title #indiewebcamp #{log.updated.format('YYYY-MM-DD')}
-    != log.encoded  
+    content(type="html")
+      != log.encoded

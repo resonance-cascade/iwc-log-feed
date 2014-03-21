@@ -36,7 +36,7 @@ if ('development' == app.get('env')) {
 }
 
 var baseURL = 'http://indiewebcamp.com/irc/';
-logs.update(baseURL, moment().subtract('days', 5), function (err, data) {
+logs.update(baseURL, moment().subtract('days', 1), function (err, data) {
   app.locals.log = data;
 });
 app.locals.pretty = true;
@@ -44,7 +44,7 @@ app.locals.pretty = true;
 
 app.get('/', routes.index);
 app.get('/atom.xml', routes.atom);
-app.get('/htmltest', routes.htmltest)
+app.get('/htmltest', routes.htmltest);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
