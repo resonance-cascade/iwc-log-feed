@@ -8,6 +8,7 @@ exports.index = function(req, res){
 };
 
 exports.atom = function(req, res){
+  res.contentType('application/atom+xml');
   res.render('atom');
 };
 
