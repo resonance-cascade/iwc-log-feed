@@ -36,7 +36,7 @@ if ('development' == app.get('env')) {
 }
 
 var baseURL = 'http://indiewebcamp.com/irc/';
-logs.update(baseURL, moment().subtract('days', 1), function (err, data) {
+logs.update(baseURL, moment().subtract('days', 0), function (err, data) {
   app.locals.log = data;
 });
 app.locals.pretty = true;
