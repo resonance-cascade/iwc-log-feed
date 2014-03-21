@@ -10,3 +10,7 @@ exports.index = function(req, res){
 exports.atom = function(req, res){
   res.render('atom');
 };
+
+exports.htmltest =function(req,res) {
+  res.render('htmltest');
+}
