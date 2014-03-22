@@ -2,19 +2,25 @@
 feed(xmlns="http://www.w3.org/2005/Atom")
   title #indiewebcamp
   link(href="http://indiewebcamp.com/irc/today")/
-  link(type="application/atom+xml" rel="self" href="http://iwc-log-feed.herokuapp.com/atom.xml")/
+  link(type="application/atom+xml" rel="self" href="https://iwc-log-feed.herokuapp.com/atom.xml")/
   //link(href="https://pubsubhubbub.superfeedr.com" rel="hub")/
   id urn:uuid:54e074e0-aefa-11e3-a5e2-0800200c9a66
   updated #{log.updated.format()}
   author
-    name IndieWebCamp
+    name The IndieWebCamp Community
     uri http://indiewebcamp.com
   logo http://indiewebcamp.com/wiki/skins/indieweb/indiewebcamp-logo-500px.png
+  icon public/images/favicon.png
   subtitle IRC logs from #indiewebcamp on Freenode
 
   entry
     id #{log.url}
+    author
+      name The IndieWebCamp Community
+      uri http://indiewebcamp.com
     link(href=log.url)/
     title #indiewebcamp #{log.updated.format('YYYY-MM-DD')}
+    category(term="indieweb")/
+    updated #{log.updated.format()}
     content(type="html")
       != log.encoded
