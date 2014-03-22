@@ -5,7 +5,7 @@ div(class="logs")
         span
           time(class="dt-published" datetime=entry.properties.published[0].format())
             a(href=entry.properties.url[0] class='u-url')
-              = entry.properties.published[0].format('HH:MM')
+              = entry.properties.published[0].format('hh:mm')
           = ' '
           span(class="p-author h-card") 
             if entry.properties.author[0].properties.url
@@ -18,6 +18,6 @@ div(class="logs")
               span(class="p-nickname p-name")
                 = entry.properties.author[0].value
               = '>'
-          = ' '
+            = ' '
           span
           != entry.properties.content[0].html
