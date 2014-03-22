@@ -3,7 +3,7 @@ extends layout
 block content
   h1= title
   p.
-    Current Status: The feed works!  Now to get it to refresh every day.
+    Current Status: It should work.  Time to work out unforseen kinks.
   p.
    This atom feed tracks the <a href='http://indiewebcamp.com/IRC'>IndieWebCamp Irc logs</a>.  
    Subscribing will allow you to have yesterdays IRC log delivered to your news feed everyday.
@@ -13,3 +13,7 @@ block content
     <a href='http://indiewebcamp.com/irc/today'>indiewebcamp.com/irc/today</a>
   p.
     Server Time: #{(new Date)}
+
+  p.
+    <a href="http://validator.w3.org/feed/check.cgi?url=http%3A//iwc-log-feed.herokuapp.com/atom.xml"><img src="valid-atom.png" alt="[Valid Atom 1.0]" title="Validate my Atom 1.0 feed" /></a>
+    <a href="http://validator.w3.org/check?uri=http%3A%2F%2Fiwc-log-feed.herokuapp.com%2Fhtmltest">Validate HTML</a>

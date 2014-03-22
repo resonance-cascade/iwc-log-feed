@@ -25,12 +25,12 @@ app.use(express.urlencoded());
 app.use(express.methodOverride());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
+app.locals.pretty = true;
 
 // development only
 if ('development' == app.get('env')) {
   var replify = require('replify');
   app.use(express.errorHandler());
-  app.locals.pretty = true;
 
   // Use repl-client to connect to interactive repl
   //  rc /tmp/repl/iwclog.sock
