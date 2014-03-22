@@ -9,7 +9,9 @@ var http = require('http');
 var path = require('path');
 var logs = require('./lib/logs');
 var moment = require('moment');
+var schedule = require('node-schedule');
 
+// Our express variable
 var app = express();
 
 // all environments
@@ -35,19 +37,30 @@ if ('development' == app.get('env')) {
   replify('iwclog', app);
 }
 
-var baseURL = 'http://indiewebcamp.com/irc/';
-logs.update(baseURL, moment().subtract('days', 1), function (err, data) {
-  app.locals.log = data;
-});
-app.locals.pretty = true;
-
-
+// Routes
 app.get('/', routes.index);
 app.get('/atom.xml', routes.atom);
 app.get('/htmltest', routes.htmltest);
 
+// Start the server
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
 
+// This is the URL to look for logs on
+var baseURL = 'http://indiewebcamp.com/irc/';
+
+function update () {logs.update(baseURL, moment().subtract('days', 1), function (err, data) {
+  if (err) {
+    console.log(err);
+  }
+  app.locals.log = data;
+});
+}
+
+// Grab yesterdays logs on startup
+//update();
+
+// Schedule a job!
+var j = schedule.scheduleJob({hour: 0, minute: 30, dayOfWeek: new schedule.Range(4, 6)}, update());
 
