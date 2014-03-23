@@ -50,17 +50,16 @@ http.createServer(app).listen(app.get('port'), function(){
 // This is the URL to look for logs on
 var baseURL = 'http://indiewebcamp.com/irc/';
 
+
+// Probably not the best way to do this, but it works for now
 function update () {logs.update(baseURL, moment().subtract('days', 1), function (err, data) {
   if (err) {
     console.log(err);
   }
-  app.locals.log = data;
-});
+    app.locals.log = data;
+  });
 }
 
-// Grab yesterdays logs on startup
-//update();
-
-// Schedule a job!
+// Schedule a job!  This triggers immediately 
 schedule.scheduleJob({hour: 0, minute: 30, dayOfWeek: new schedule.Range(0, 6)}, update());
 
