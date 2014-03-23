@@ -62,5 +62,5 @@ function update () {logs.update(baseURL, moment().subtract('days', 1), function 
 //update();
 
 // Schedule a job!
-var j = schedule.scheduleJob({hour: 0, minute: 30, dayOfWeek: new schedule.Range(4, 6)}, update());
+schedule.scheduleJob({hour: 0, minute: 30, dayOfWeek: new schedule.Range(0, 6)}, update());
 
